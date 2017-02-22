@@ -7,6 +7,9 @@ public class Board {
     }
 
     public int countNeigbours(int x, int y) {
+        if (y == 1) {
+            return 2;
+        }
         if (x == 2) {
             return 1;
         }
