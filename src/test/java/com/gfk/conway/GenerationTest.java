@@ -34,6 +34,7 @@ public class GenerationTest {
     @Test
     public void countNeighbours() {
         assertEquals(0, board.countNeigbours(0, 0));
+        assertEquals(1, board.countNeigbours(2, 0));
     }
 
 }
