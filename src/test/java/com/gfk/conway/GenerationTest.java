@@ -33,11 +33,11 @@ public class GenerationTest {
 
     @Test
     public void countNeighbours() {
-        assertEquals(0, board.countNeigbours(0, 0));
-        assertEquals(1, board.countNeigbours(2, 0));
-        assertEquals(2, board.countNeigbours(2, 1));
-        assertEquals(3, board.countNeigbours(2, 2));
-        assertEquals(4, board.countNeigbours(1, 2));
+        assertEquals(0, board.countNeighbours(0, 0));
+        assertEquals(1, board.countNeighbours(2, 0));
+        assertEquals(2, board.countNeighbours(2, 1));
+        assertEquals(3, board.countNeighbours(2, 2));
+        assertEquals(4, board.countNeighbours(1, 2));
     }
 
 }

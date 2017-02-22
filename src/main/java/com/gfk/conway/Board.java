@@ -8,7 +8,7 @@ public class Board {
         this.population = population;
     }
 
-    public int countNeigbours(int x, int y) {
+    public int countNeighbours(int x, int y) {
         int neighbours = 0;
         for (int i = Math.max(0, y - 1); i < Math.min(population.length, y + 2); i++) {
             for (int j = Math.max(0, x - 1); j < Math.min(population[i].length, x + 2); j++ ) {
