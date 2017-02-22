@@ -4,9 +4,16 @@ public enum Cell {
     Alive, Dead;
 
     public Cell nextGeneration(int neighbours) {
-        if (neighbours == 2 || neighbours == 3) {
+        if (neighbours == 3) {
+            return Alive;
+        }
+        if (neighbours == 2 && isAlive(this)) {
             return Alive;
         }
         return Dead;
+    }
+
+    private static boolean isAlive(Cell cell) {
+        return Alive.equals(cell);
     }
 }
