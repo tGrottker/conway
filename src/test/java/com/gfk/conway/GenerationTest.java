@@ -36,6 +36,8 @@ public class GenerationTest {
         assertEquals(0, board.countNeigbours(0, 0));
         assertEquals(1, board.countNeigbours(2, 0));
         assertEquals(2, board.countNeigbours(2, 1));
+        assertEquals(3, board.countNeigbours(2, 2));
+        assertEquals(4, board.countNeigbours(1, 2));
     }
 
 }
