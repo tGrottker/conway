@@ -36,4 +36,17 @@ public class LifeRuleTest {
         assertEquals(Cell.Alive, cell.nextGeneration(3));
     }
 
+    @Test
+    public void deadCellsStayDead() {
+        Cell cell = Cell.Dead;
+        assertEquals(Cell.Dead, cell.nextGeneration(0));
+        assertEquals(Cell.Dead, cell.nextGeneration(1));
+        assertEquals(Cell.Dead, cell.nextGeneration(2));
+        assertEquals(Cell.Dead, cell.nextGeneration(4));
+        assertEquals(Cell.Dead, cell.nextGeneration(5));
+        assertEquals(Cell.Dead, cell.nextGeneration(6));
+        assertEquals(Cell.Dead, cell.nextGeneration(7));
+        assertEquals(Cell.Dead, cell.nextGeneration(8));
+    }
+
 }
