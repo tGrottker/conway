@@ -2,7 +2,7 @@ package com.gfk.conway;
 
 public class Board {
 
-    private Cell[][] population;
+    final Cell[][] population;
 
     public Board(Cell[][] population) {
         this.population = population;
@@ -21,5 +21,15 @@ public class Board {
             return neighbours - 1;
         }
         return neighbours;
+    }
+
+    public Board nextGeneration() {
+        Cell[][] nextGeneration = new Cell[population.length][population[0].length];
+        for (int i = 0; i < nextGeneration.length; i++) {
+            for (int j = 0; j < nextGeneration[0].length; j ++) {
+                nextGeneration[i][j] =  population[i][j].nextGeneration(countNeighbours(j, i));
+            }
+        }
+        return new Board(nextGeneration);
     }
 }
