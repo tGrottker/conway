@@ -30,4 +30,10 @@ public class LifeRuleTest {
         assertEquals(Cell.Dead, cell.nextGeneration(8));
     }
 
+    @Test
+    public void deadCellsAreBorn() {
+        Cell cell = Cell.Dead;
+        assertEquals(Cell.Alive, cell.nextGeneration(3));
+    }
+
 }
