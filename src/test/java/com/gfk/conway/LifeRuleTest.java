@@ -13,4 +13,11 @@ public class LifeRuleTest {
         assertEquals(Cell.Dead, cell.nextGeneration(0));
     }
 
+    @Test
+    public void aliveCellWithTwoOrThreeNeighboursLive() {
+        Cell cell = Cell.Alive;
+        assertEquals(Cell.Alive, cell.nextGeneration(2));
+        assertEquals(Cell.Alive, cell.nextGeneration(3));
+    }
+
 }
