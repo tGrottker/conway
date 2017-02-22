@@ -2,17 +2,24 @@ package com.gfk.conway;
 
 public class Board {
 
-    public Board(Cell[][] population) {
+    private Cell[][] population;
 
+    public Board(Cell[][] population) {
+        this.population = population;
     }
 
     public int countNeigbours(int x, int y) {
-        if (y == 1) {
-            return 2;
+        int neighbours = 0;
+        for (int i = Math.max(0, y - 1); i < Math.min(population.length, y + 2); i++) {
+            for (int j = Math.max(0, x - 1); j < Math.min(population[i].length, x + 2); j++ ) {
+                if (Cell.isAlive(population[i][j])) {
+                    neighbours += 1;
+                }
+            }
         }
-        if (x == 2) {
-            return 1;
+        if (Cell.isAlive(population[y][x])) {   // count only neighbours
+            return neighbours - 1;
         }
-        return 0;
+        return neighbours;
     }
 }

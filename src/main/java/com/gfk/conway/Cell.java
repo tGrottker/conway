@@ -13,7 +13,7 @@ public enum Cell {
         return Dead;
     }
 
-    private static boolean isAlive(Cell cell) {
+    public static boolean isAlive(Cell cell) {
         return Alive.equals(cell);
     }
 }
