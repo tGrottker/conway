@@ -2,7 +2,6 @@ package com.gfk.conway;
 
 import javax.swing.*;
 import java.awt.*;
-import java.awt.event.ActionEvent;
 
 public class Visualization extends JFrame {
 
@@ -32,6 +31,7 @@ public class Visualization extends JFrame {
         JPanel panel = new JPanel();
         panel.setLayout(new BoxLayout(panel, BoxLayout.Y_AXIS));
 
+        panel.add(Box.createRigidArea(new Dimension(0, 100)));
         JButton newGame = new JButton("New Game");
         newGame.addActionListener((ActionEvent) -> {
             boardPanel.restart();
@@ -44,6 +44,13 @@ public class Visualization extends JFrame {
             boardPanel.evolve();
         });
         panel.add(evolve);
+        panel.add(Box.createRigidArea(new Dimension(0, 10)));
+
+        JButton autoPlay = new JButton("Play/Pause");
+        autoPlay.addActionListener((ActionEvent) -> {
+            boardPanel.toggleAutoPlay();
+        });
+        panel.add(autoPlay);
 
         return panel;
     }

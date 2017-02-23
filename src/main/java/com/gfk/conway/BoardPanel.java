@@ -2,13 +2,17 @@ package com.gfk.conway;
 
 import javax.swing.*;
 import java.awt.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 
-public class BoardPanel extends JPanel {
+public class BoardPanel extends JPanel implements ActionListener {
 
     private static int BOARD_WIDTH = 50;
     private static int BOARD_HEIGHT = 50;
     private static int CELL_SIZE = 10;
     private Board board = new Board(BOARD_WIDTH, BOARD_HEIGHT);
+    private boolean autoPlay = false;
+    private Timer redrawTimer = new Timer(500, this);
 
 
     public BoardPanel() {
@@ -23,6 +27,8 @@ public class BoardPanel extends JPanel {
     }
 
     public void restart() {
+        autoPlay = false;
+        redrawTimer.stop();
         board = new Board(BOARD_WIDTH, BOARD_HEIGHT);
         repaint();
     }
@@ -30,6 +36,15 @@ public class BoardPanel extends JPanel {
     public void evolve() {
         board = board.nextGeneration();
         repaint();
+    }
+
+    public void toggleAutoPlay() {
+        autoPlay = !autoPlay;
+        if (autoPlay) {
+            redrawTimer.start();
+        } else {
+            redrawTimer.stop();
+        }
     }
 
     private void drawCells(Graphics g) {
@@ -58,4 +73,9 @@ public class BoardPanel extends JPanel {
         }
     }
 
+    @Override
+    public void actionPerformed(ActionEvent e) {
+        evolve();
+        redrawTimer.restart();
+    }
 }
