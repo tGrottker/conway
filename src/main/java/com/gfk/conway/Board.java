@@ -8,6 +8,10 @@ public class Board {
         this.population = population;
     }
 
+    public Board(int width, int height) {
+        population = new Cell[height][width];
+    }
+
     public int countNeighbours(int x, int y) {
         int neighbours = 0;
         for (int i = Math.max(0, y - 1); i < Math.min(population.length, y + 2); i++) {
