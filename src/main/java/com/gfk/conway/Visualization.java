@@ -28,25 +28,29 @@ public class Visualization extends JFrame {
     }
 
     private Container createButtons() {
+        Dimension buttonSize = new Dimension(300, 25);
         JPanel panel = new JPanel();
         panel.setLayout(new BoxLayout(panel, BoxLayout.Y_AXIS));
 
-        panel.add(Box.createRigidArea(new Dimension(0, 100)));
+        panel.add(Box.createVerticalStrut(100));
         JButton newGame = new JButton("New Game");
+        newGame.setMaximumSize(buttonSize);
         newGame.addActionListener((ActionEvent) -> {
             boardPanel.restart();
         });
         panel.add(newGame);
-        panel.add(Box.createRigidArea(new Dimension(0, 10)));
+        panel.add(Box.createVerticalStrut(15));
 
         JButton evolve = new JButton("Evolve");
+        evolve.setMaximumSize(buttonSize);
         evolve.addActionListener((ActionEvent) -> {
             boardPanel.evolve();
         });
         panel.add(evolve);
-        panel.add(Box.createRigidArea(new Dimension(0, 10)));
+        panel.add(Box.createVerticalStrut(15));
 
         JButton autoPlay = new JButton("Play/Pause");
+        autoPlay.setMaximumSize(buttonSize);
         autoPlay.addActionListener((ActionEvent) -> {
             boardPanel.toggleAutoPlay();
         });
