@@ -14,7 +14,7 @@ public class Visualization extends JFrame {
     private void initUI() {
         createLayout();
         setTitle("Game of Life");
-        setSize(800, 500);
+        setSize(650, 500);
         setLocationRelativeTo(null);
         setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
     }
@@ -22,9 +22,11 @@ public class Visualization extends JFrame {
     private void createLayout() {
         Container pane = getContentPane();
         BorderLayout layout = new BorderLayout();
+        layout.setHgap(10);
         pane.setLayout(layout);
         pane.add(boardPanel, BorderLayout.WEST);
-        pane.add(createButtons(), BorderLayout.EAST);
+        pane.add(createButtons(), BorderLayout.CENTER);
+        pane.add(new JPanel(), BorderLayout.EAST);
     }
 
     private Container createButtons() {
@@ -32,7 +34,7 @@ public class Visualization extends JFrame {
         JPanel panel = new JPanel();
         panel.setLayout(new BoxLayout(panel, BoxLayout.Y_AXIS));
 
-        panel.add(Box.createVerticalStrut(100));
+        panel.add(Box.createVerticalStrut(170));
         JButton newGame = new JButton("New Game");
         newGame.setMaximumSize(buttonSize);
         newGame.addActionListener((ActionEvent) -> {
