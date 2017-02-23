@@ -31,6 +31,12 @@ public class Visualization extends JFrame {
             boardPanel.restart();
         });
         pane.add(newGame, BorderLayout.EAST);
+
+        JButton evolve = new JButton("Evolve");
+        evolve.addActionListener((ActionEvent) -> {
+            boardPanel.evolve();
+        });
+        pane.add(evolve, BorderLayout.EAST);
     }
 
     public static void main(String[] args) {

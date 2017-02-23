@@ -27,6 +27,11 @@ public class BoardPanel extends JPanel {
         repaint();
     }
 
+    public void evolve() {
+        board = board.nextGeneration();
+        repaint();
+    }
+
     private void drawCells(Graphics g) {
         Cell[][] population = board.population;
         int height = population.length;
