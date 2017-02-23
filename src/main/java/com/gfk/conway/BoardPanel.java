@@ -5,11 +5,15 @@ import java.awt.*;
 
 public class BoardPanel extends JPanel {
 
-    private Board board = new Board(50, 50);
+    private static int BOARD_WIDTH = 50;
+    private static int BOARD_HEIGHT = 50;
+    private static int CELL_SIZE = 10;
+    private Board board = new Board(BOARD_WIDTH, BOARD_HEIGHT);
+
 
     public BoardPanel() {
         setBorder(BorderFactory.createLineBorder(Color.BLACK));
-        setPreferredSize(new Dimension(500, 500));
+        setPreferredSize(new Dimension(BOARD_WIDTH * CELL_SIZE, BOARD_HEIGHT * CELL_SIZE));
     }
 
     public void paintComponent(Graphics g) {
@@ -26,7 +30,7 @@ public class BoardPanel extends JPanel {
         for (int y = 0; y < height; y++) {
             for (int x = 0; x < width; x++) {
                 if (Cell.isAlive(population[y][x])) {
-                    g.fillRect(x*10, y*10, 10, 10);
+                    g.fillRect(x*CELL_SIZE, y*CELL_SIZE, CELL_SIZE, CELL_SIZE);
                 }
             }
         }

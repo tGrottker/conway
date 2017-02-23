@@ -2,6 +2,7 @@ package com.gfk.conway;
 
 import javax.swing.*;
 import java.awt.*;
+import java.awt.event.ActionEvent;
 
 public class Visualization extends JFrame {
 
