@@ -25,18 +25,27 @@ public class Visualization extends JFrame {
         BorderLayout layout = new BorderLayout();
         pane.setLayout(layout);
         pane.add(boardPanel, BorderLayout.WEST);
+        pane.add(createButtons(), BorderLayout.EAST);
+    }
+
+    private Container createButtons() {
+        JPanel panel = new JPanel();
+        panel.setLayout(new BoxLayout(panel, BoxLayout.Y_AXIS));
 
         JButton newGame = new JButton("New Game");
         newGame.addActionListener((ActionEvent) -> {
             boardPanel.restart();
         });
-        pane.add(newGame, BorderLayout.EAST);
+        panel.add(newGame);
+        panel.add(Box.createRigidArea(new Dimension(0, 10)));
 
         JButton evolve = new JButton("Evolve");
         evolve.addActionListener((ActionEvent) -> {
             boardPanel.evolve();
         });
-        pane.add(evolve, BorderLayout.EAST);
+        panel.add(evolve);
+
+        return panel;
     }
 
     public static void main(String[] args) {
