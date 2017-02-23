@@ -22,6 +22,11 @@ public class BoardPanel extends JPanel {
         drawGird(g);
     }
 
+    public void restart() {
+        board = new Board(BOARD_WIDTH, BOARD_HEIGHT);
+        repaint();
+    }
+
     private void drawCells(Graphics g) {
         Cell[][] population = board.population;
         int height = population.length;

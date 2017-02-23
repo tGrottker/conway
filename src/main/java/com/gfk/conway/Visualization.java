@@ -6,7 +6,7 @@ import java.awt.event.ActionEvent;
 
 public class Visualization extends JFrame {
 
-    private JPanel boardPanel = new BoardPanel();
+    private BoardPanel boardPanel = new BoardPanel();
 
     public Visualization() {
         initUI();
@@ -25,6 +25,12 @@ public class Visualization extends JFrame {
         BorderLayout layout = new BorderLayout();
         pane.setLayout(layout);
         pane.add(boardPanel, BorderLayout.WEST);
+
+        JButton newGame = new JButton("New Game");
+        newGame.addActionListener((ActionEvent) -> {
+            boardPanel.restart();
+        });
+        pane.add(newGame, BorderLayout.EAST);
     }
 
     public static void main(String[] args) {
