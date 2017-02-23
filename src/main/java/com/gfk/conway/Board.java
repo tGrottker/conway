@@ -10,6 +10,11 @@ public class Board {
 
     public Board(int width, int height) {
         population = new Cell[height][width];
+        for (int i = 0; i < height; i++) {
+            for (int j = 0; j < width; j++) {
+                population[i][j] = Cell.random();
+            }
+        }
     }
 
     public int countNeighbours(int x, int y) {
