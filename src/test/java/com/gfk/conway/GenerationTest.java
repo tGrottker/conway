@@ -1,7 +1,6 @@
 package com.gfk.conway;
 
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertArrayEquals;
+import static org.junit.Assert.*;
 
 import org.junit.Before;
 import org.junit.Test;
@@ -64,6 +63,13 @@ public class GenerationTest {
         assertArrayEquals(secondRow, nextGeneration[1]);
         assertArrayEquals(thirdRow, nextGeneration[2]);
         assertArrayEquals(fourthRow, nextGeneration[3]);
+    }
+
+    @Test
+    public void randomlyInitializedStart() {
+        Board current = new Board(5, 5);
+        Board other = new Board(5, 5);
+        assertFalse(current.equals(other));
     }
 
 }
