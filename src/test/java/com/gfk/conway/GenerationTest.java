@@ -67,9 +67,21 @@ public class GenerationTest {
 
     @Test
     public void randomlyInitializedStart() {
-        Board current = new Board(5, 5);
-        Board other = new Board(5, 5);
-        assertFalse(current.equals(other));
+        int width = 5;
+        int height = 5;
+        Board current = new Board(width, height);
+        Board other = new Board(width, height);
+        boolean boardsIdentically = true;
+        for (int i = 0; i < height; i++) {
+            for (int j = 0; j < width; j++) {
+                assertNotNull(current.population[i][j]);
+                assertNotNull(other.population[i][j]);
+                if (!current.population[i][j].equals(other.population[i][j])) {
+                    boardsIdentically = false;
+                }
+            }
+        }
+        assertFalse(boardsIdentically);
     }
 
 }
